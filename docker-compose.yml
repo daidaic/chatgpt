@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    image: chenzhaoyu94/chatgpt-web # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可
+    restart: unless-stopped
+    ports:
+      - 3002:3002
+    environment:
+      OPENAI_API_KEY: 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
+      # OPENAI_API_BASE_URL: {你的token对于的api}
+      OPENAI_API_MODEL: gpt-3.5-turbo-0301 #聊天的模型
+      AUTH_SECRET_KEY: "SHOUSHOU" #密码，防止其他人乱用你的额度
+      TIMEOUT_MS: 30000
